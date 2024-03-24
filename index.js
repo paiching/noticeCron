@@ -53,7 +53,7 @@ async function sendEmail(eventDetails) {
 }
 
 // Schedule the task to run every day at 10:00 AM
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('45 23 * * *', () => {
     // const event = checkForEvent();
     // if (event) {
     //     sendEmail(event)
@@ -62,5 +62,5 @@ cron.schedule('*/1 * * * *', () => {
     // } else {
     //     console.log('No event for tomorrow.');
     // }
-    console.log("cron job triggered");
+    console.log('正在執行晚上 23:45 的檢查任務...');
 });

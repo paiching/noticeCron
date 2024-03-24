@@ -2,6 +2,19 @@ const cron = require('node-cron');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 require('dotenv').config();
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3003;
+
+// Respond with a simple message to any requests
+app.get('/', (req, res) => {
+  res.send('Cron job service is running.');
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 // Function to check if there is an event tomorrow
 function checkForEvent() {
@@ -40,7 +53,7 @@ async function sendEmail(eventDetails) {
 }
 
 // Schedule the task to run every day at 10:00 AM
-cron.schedule('*/10 * * * *', () => {
+cron.schedule('*/1 * * * *', () => {
     // const event = checkForEvent();
     // if (event) {
     //     sendEmail(event)

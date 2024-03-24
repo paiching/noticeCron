@@ -41,12 +41,13 @@ async function sendEmail(eventDetails) {
 
 // Schedule the task to run every day at 10:00 AM
 cron.schedule('*/10 * * * *', () => {
-    const event = checkForEvent();
-    if (event) {
-        sendEmail(event)
-            .then(() => console.log('Email sent successfully!'))
-            .catch(console.error);
-    } else {
-        console.log('No event for tomorrow.');
-    }
+    // const event = checkForEvent();
+    // if (event) {
+    //     sendEmail(event)
+    //         .then(() => console.log('Email sent successfully!'))
+    //         .catch(console.error);
+    // } else {
+    //     console.log('No event for tomorrow.');
+    // }
+    console.log("cron job triggered");
 });
